@@ -1,0 +1,220 @@
+/* Card Label Expansion */
+
+.list-card
+{
+    overflow: hidden;
+}
+.list-card-labels
+{
+    display: block;
+    margin: 0!important;
+}
+.list-card-labels .card-label
+{
+    font-size: .7142857142857143rem;
+    line-height: 1.142857142857143rem!important;
+    height: inherit!important;
+    margin-right: 0;
+    padding: 0 0.5em!important;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .1) 0 0 5px, rgba(0, 0, 0, .2) 0 0 2px;
+    width: auto!important;
+    display: inline!important;
+}
+
+/*trello css design leftovers that aren't visible when using vanilla trello, but get in the way when you change css rules*/
+.list-gradient-top,
+.list-gradient-bottom {
+	background: transparent !important;
+}
+.list .list-card .card-operation {
+	background-color: transparent;
+}
+
+/*be able to hide random elements*/
+.trelloScrum-hide {
+	display: none !important;
+}
+
+/* FEATURE: Make inactive lists darker */
+.list.trelloScrum-inactive {
+	background-color: #bbb;
+ 	border-top-color: #DDD;
+}
+
+.list-link.trelloScrum-inactive strong{
+	color: #BBB;
+}
+
+
+.list.trelloScrum-inactive .open-card-composer:hover {
+	background-color: #999;
+}
+
+.list.trelloScrum-inactive h2 {
+	font-weight: normal;
+}
+
+/* FEATURE: show points */
+
+/* total */
+.list-header:hover .trelloScrum-pointsTotal,
+.list-header:hover .trelloScrum-ghostTotal {
+	display: none;
+}
+
+.list-title {
+    width: 120px;
+}
+
+.list .trelloScrum-ghostTotal {
+    display: none;
+}
+.trelloScrum-ghostCards-enabled  .trelloScrum-ghostTotal {
+    display: inherit;
+}
+
+.list .trelloScrum-pointsTotal,
+.list .trelloScrum-ghostTotal {
+	font-size: 75%;
+	position: absolute;
+	right: 6px;
+	top: -7px;
+	padding: 2px 5px 3px;
+	background-color: #2478A8;
+	color: white;
+	font-weight: bold;
+	z-index: 3;
+	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 100%);
+}
+.list .trelloScrum-ghostTotal {
+    right: 40px;
+    opacity: .5;
+}
+
+.list .trelloScrum-ghostTotal:empty,
+.list .trelloScrum-pointsTotal:empty {
+	display: none;
+}
+
+/*points per card */
+.list-card .trelloScrum-points {
+	position: absolute;
+	color: #939393;
+	font-weight: bold;
+	right: -1px;
+	top: -1px;
+	float: right;
+	font-size: 11px;
+	line-height: 16px;
+	padding: 0 4px;
+	border-radius: 3px;
+	background: #e6e6e6;
+	border: 1px solid #d9d9d9;
+	border-bottom-color: #d3d3d3;
+}
+
+.list-card .trelloScrum-points.trelloScrum-questionMark {
+	color: rgb(238, 238, 238);
+	background-color: #cb4d4d;
+	border-color: rgb(114, 40, 40);
+}
+
+.list-card .trelloScrum-points.trelloScrum-big {
+    color: rgb(238, 238, 238);
+    background-color: #9933cc;
+    border-color: rgb(114, 40, 40);
+}
+
+/* make cards without points ghostey*/
+.trelloScrum-ghostCards-enabled .list-card.trelloScrum-ghostcard {
+	opacity: .5;
+}
+
+
+/* FEATURE: make .trelloScrum-seperator cards look like a separator*/
+.list {
+	padding-left: 0 !important;
+}
+
+.open-card-composer {
+	margin: 2px -2px -2px 0px !important;
+}
+
+.list-cards {
+	padding-left: 8px !important;
+}
+
+.list-card-area {
+	margin-left: -2px;
+}
+
+.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-seperator,
+.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-seperator.ui-droppable {
+	border: none;
+	z-index: auto;
+	opacity: 1;
+	margin-left: -3px;
+	margin-right: 17px;
+	padding-left: 10%;
+	border-radius: 0px 3px 3px 0px;
+	margin-left: -8px;
+        background: #00b9cf;
+        box-shadow: rgba(0,0,0,0.4) 2px 2px 2px;
+}
+
+.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-seperator a,
+.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-seperator a {
+	color: white;
+	font-weight: bold;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.trelloScrum-labelCards-enabled .trelloScrum-seperator .trelloScrum-points,
+.trelloScrum-labelCards-enabled .trelloScrum-seperator .js-card-labels {
+    display: none;
+}
+
+.trelloScrum-labelCards-enabled .trelloScrum-seperator {
+    /* background-color: #C2C2C2; */
+}
+
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-red {
+     background-color: #cb4d4d;
+}
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-orange {
+     background-color: #e09952;
+}
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-yellow {
+     background-color: #dbdb57;
+}
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-green {
+     background-color: #34b27d;
+}
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-purple {
+     background-color: #9933cc;
+}
+.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-blue {
+     background-color: #4d77cb;
+}
+
+body.trelloScrum-showCardNumbers .trelloScrum-seperator .card-short-id {
+    display: none;
+}
+body.trelloScrum-showCardNumbers span.card-short-id {
+    display: inline-block;
+    border: 1px solid #d9d9d9;
+    border-bottom-color: #d3d3d3;
+    border-radius: 2px;
+    color: #737373;
+    cursor: default;
+    float: left;
+    font-size: 11px;
+    line-height: 16px;
+    height: 16px;
+    margin-right: 4px;
+    padding: 0 4px;
+    position: relative;
+    text-decoration: none;
+}
