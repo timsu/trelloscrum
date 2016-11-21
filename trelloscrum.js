@@ -14,6 +14,11 @@
     });
 
     function applySettings(settings) {
+        // we have disabled the settings UI
+        settings.labelCards = true;
+        settings.showCardNumbers = false;
+        settings.ghostCards = false;
+
         if (settings.ghostCards) {
             document.body.classList.add("trelloScrum-ghostCards-enabled");
         } else {
