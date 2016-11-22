@@ -22,5 +22,5 @@
       "default_title": "Board settings"
    },
    "permissions": [ "tabs" ],
-   "version": "10"
+   "version": "11"
 }
