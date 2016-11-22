@@ -248,14 +248,16 @@
         }
         if (hasPoints(title)) {
             var points = title.match(findStorypoints)[1];
-            pointsLabel.text("")
+            pointsLabel.text(points)
                 .removeClass("trelloScrum-questionMark")
-                .removeClass("trelloScrum-big");
+                .removeClass("trelloScrum-big")
+                .css("display", "block");
             $card.removeClass("trelloScrum-ghostcard");
         } else {
             pointsLabel.text("")
                 .removeClass("trelloScrum-questionMark")
-                .removeClass("trelloScrum-big");
+                .removeClass("trelloScrum-big")
+                .css("display", "none");
             $card.removeClass("trelloScrum-ghostcard");
         }
     }
