@@ -126,11 +126,14 @@
             pointsLabel = $("<span class='trelloScrum-pointsTotal'></span>");
             $listElm.find(".js-list-header").prepend(pointsLabel);
         }
-        var total = $listElm.find(".trelloScrum-points:not(.trelloScrum-questionMark)").toArray().reduce(function (a,b) { return a + b.innerText*1}, 0);
+        var total = $listElm.find(".trelloScrum-points:not(.trelloScrum-questionMark)").toArray().reduce(function (a,b) {
+            return a + (b.innerText ? b.innerText * 1 : 1);
+        }, 0);
         var roundedTotal = Math.round(total*10)/10;
         if ($listElm.find(".trelloScrum-questionMark").length > 0) {
             roundedTotal += "?";
         }
+        pointsLabel.text(roundedTotal);
         var ghostLabel = $listElm.find(".js-list-header .trelloScrum-ghostTotal");
         if (ghostLabel.length === 0) {
             ghostLabel = $("<span class='trelloScrum-ghostTotal'></span>");
@@ -138,6 +141,27 @@
         }
         var total = $listElm.find(".trelloScrum-ghostcard").length;
         ghostLabel.text(total ? total : "");
+    }
+
+    function recalcHeader($headerElm) {
+        //recalc list Total
+        var pointsLabel = $headerElm.find(".trelloScrum-pointsTotal");
+        if (pointsLabel.length === 0) {
+            pointsLabel = $("<div class='trelloScrum-pointsTotal'></div>");
+            $headerElm.prepend(pointsLabel)
+        }
+        console.log($headerElm);
+        var children = $headerElm.nextUntil(".trelloScrum-seperator");
+        console.log("mah children", children)
+        var total = children.find(".trelloScrum-points:not(.trelloScrum-questionMark)").toArray().reduce(function (a,b) {
+            return a + (b.innerText ? b.innerText * 1 : 1);
+        }, 0);
+        var roundedTotal = Math.round(total*10)/10;
+        if (children.find(".trelloScrum-questionMark").length > 0) {
+            roundedTotal += "?";
+        }
+        console.log("mah total", roundedTotal);
+        pointsLabel.text(roundedTotal);
     }
 
     mutationListeners.push(new MutationSummary({
@@ -277,6 +301,10 @@
         } else {
             $card.removeClass("trelloScrum-seperator");
             updatePoints($card, title);
+            var header = $card.prevUntil(".trelloScrum-separator");
+            if (header.length > 0) {
+              recalcHeader(header.prev());
+            }
         }
         recalcList($(elm).closest(".list"))
     });
