@@ -298,12 +298,12 @@
         } else {
             $card.removeClass("trelloScrum-separator");
             updatePoints($card, title);
-            var header = $card.prevAll(".trelloScrum-separator:first").last();
-            if (header.length > 0) {
-              recalcHeader(header);
-            }
         }
-        recalcList($(elm).closest(".list"))
+        var list = $(elm).closest(".list");
+        recalcList(list)
+        list.find(".trelloScrum-separator").each(function() {
+          recalcHeader($(this));
+        });
     });
 
     //******************************************************************************************************************
