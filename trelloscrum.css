@@ -170,6 +170,10 @@
 	text-shadow: black 0.1em 0.1em 0.2em;
 }
 
+.ui-sortable-helper .trelloScrum-pointsTotal {
+  display: none;
+}
+
 .trelloScrum-separator .trelloScrum-pointsTotal {
     padding-top: 7px;
     background-color: orange;

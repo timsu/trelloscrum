@@ -169,6 +169,11 @@
             lists = elements.map(function (elm) { return $(elm).closest(".list")});
             lists = lists.concat(elements.map(function (elm) { return $(newData[0].getOldParentNode(elm)).closest(".list"); }))
             lists.map(recalcList);
+            lists.map(function(list) {
+              $(list).find(".trelloScrum-separator").each(function() {
+                recalcHeader($(this));
+              });
+            });
         }
     }));
 
