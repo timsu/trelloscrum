@@ -150,9 +150,7 @@
             pointsLabel = $("<div class='trelloScrum-pointsTotal'></div>");
             $headerElm.prepend(pointsLabel)
         }
-        console.log($headerElm);
-        var children = $headerElm.nextUntil(".trelloScrum-seperator");
-        console.log("mah children", children)
+        var children = $headerElm.nextUntil(".trelloScrum-separator");
         var total = children.find(".trelloScrum-points:not(.trelloScrum-questionMark)").toArray().reduce(function (a,b) {
             return a + (b.innerText ? b.innerText * 1 : 1);
         }, 0);
@@ -160,7 +158,6 @@
         if (children.find(".trelloScrum-questionMark").length > 0) {
             roundedTotal += "?";
         }
-        console.log("mah total", roundedTotal);
         pointsLabel.text(roundedTotal);
     }
 
@@ -181,7 +178,7 @@
             newData[0].reparented.concat(newData[0].removed).map(function (elm) {
                 var labelContainer = newData[0].getOldParentNode(elm);
                 var card = newData[0].getOldParentNode(labelContainer);
-                if (card.classList.contains("trelloScrum-seperator")) {
+                if (card.classList.contains("trelloScrum-separator")) {
                     var color;
                     if (elm.classList.contains("card-label-green")){
                         color = "green";
@@ -196,7 +193,7 @@
                     } else if (elm.classList.contains("card-label-blue")){
                         color = "blue";
                     }
-                    $(card).removeClass("trelloScrum-seperator-" + color);
+                    $(card).removeClass("trelloScrum-separator-" + color);
                 }
             });
             newData[0].added.map(function (elm) {
@@ -214,7 +211,7 @@
                 } else if (elm.classList.contains("card-label-blue")){
                     color = "blue";
                 }
-                $(elm).closest(".list-card").addClass("trelloScrum-seperator-" + color);
+                $(elm).closest(".list-card").addClass("trelloScrum-separator-" + color);
             });
         }
     }));
@@ -233,7 +230,7 @@
         } else if (this.classList.contains("card-label-blue")){
             color = "blue";
         }
-        $(this).closest(".list-card").addClass("trelloScrum-seperator-" + color);
+        $(this).closest(".list-card").addClass("trelloScrum-separator-" + color);
     });
 
     //******************************************************************************************************************
@@ -252,11 +249,11 @@
     });
 
     //******************************************************************************************************************
-    //  Track card titles and show their point total or change them into a seperator
+    //  Track card titles and show their point total or change them into a separator
     //******************************************************************************************************************
     var findStorypoints = /\((\x3f|\d*\.?\d+)\)/;
 
-    function isSeperator(title) {
+    function isSeparator(title) {
         return (title.substr(0,3) === "***" && title.substr(-3) === "***") || title.substr(0,2) === "# ";
     }
 
@@ -291,19 +288,19 @@
         var title = elm.innerText.trim(),
             $card = $(elm).closest(".list-card");
 
-        if (isSeperator(title)) {
-            $card.addClass("trelloScrum-seperator");
+        if (isSeparator(title)) {
+            $card.addClass("trelloScrum-separator");
             $card.removeClass("trelloScrum-ghostcard");
             $card.find(".trelloScrum-points")
                 .removeClass("trelloScrum-questionMark")
                 .removeClass("trelloScrum-big")
                 .text("");
         } else {
-            $card.removeClass("trelloScrum-seperator");
+            $card.removeClass("trelloScrum-separator");
             updatePoints($card, title);
-            var header = $card.prevUntil(".trelloScrum-separator");
+            var header = $card.prevAll(".trelloScrum-separator:first").last();
             if (header.length > 0) {
-              recalcHeader(header.prev());
+              recalcHeader(header);
             }
         }
         recalcList($(elm).closest(".list"))
@@ -328,7 +325,7 @@
     }));
 
     //******************************************************************************************************************
-    //  Display the ticket numbers if they are not seperator labels
+    //  Display the ticket numbers if they are not separator labels
     //******************************************************************************************************************
     function showCardNumbers() {
         $("body").addClass("trelloScrum-showCardNumbers")

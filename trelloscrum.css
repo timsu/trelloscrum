@@ -133,7 +133,7 @@
 }
 
 
-/* FEATURE: make .trelloScrum-seperator cards look like a separator*/
+/* FEATURE: make .trelloScrum-separator cards look like a separator*/
 .list {
 	padding-left: 0 !important;
 }
@@ -150,8 +150,8 @@
 	margin-left: -2px;
 }
 
-.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-seperator,
-.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-seperator.ui-droppable {
+.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-separator,
+.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-separator.ui-droppable {
 	border: none;
 	z-index: auto;
 	opacity: 1;
@@ -163,49 +163,49 @@
         box-shadow: rgba(0,0,0,0.4) 2px 2px 2px;
 }
 
-.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-seperator a,
-.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-seperator a {
+.trelloScrum-labelCards-enabled .archive-items .list-card.trelloScrum-separator a,
+.trelloScrum-labelCards-enabled .list .list-card.trelloScrum-separator a {
 	color: white;
 	font-weight: bold;
 	text-shadow: black 0.1em 0.1em 0.2em;
 }
 
-.trelloScrum-seperator .trelloScrum-pointsTotal {
+.trelloScrum-separator .trelloScrum-pointsTotal {
     padding-top: 7px;
     background-color: orange;
     right: 0;
     top: -7px;
 }
 
-.trelloScrum-labelCards-enabled .trelloScrum-seperator .trelloScrum-points,
-.trelloScrum-labelCards-enabled .trelloScrum-seperator .js-card-labels {
+.trelloScrum-labelCards-enabled .trelloScrum-separator .trelloScrum-points,
+.trelloScrum-labelCards-enabled .trelloScrum-separator .js-card-labels {
     display: none;
 }
 
-.trelloScrum-labelCards-enabled .trelloScrum-seperator {
+.trelloScrum-labelCards-enabled .trelloScrum-separator {
     /* background-color: #C2C2C2; */
 }
 
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-red {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-red {
      background-color: #cb4d4d;
 }
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-orange {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-orange {
      background-color: #e09952;
 }
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-yellow {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-yellow {
      background-color: #dbdb57;
 }
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-green {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-green {
      background-color: #34b27d;
 }
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-purple {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-purple {
      background-color: #9933cc;
 }
-.trelloScrum-labelCards-enabled .trelloScrum-seperator.trelloScrum-seperator-blue {
+.trelloScrum-labelCards-enabled .trelloScrum-separator.trelloScrum-separator-blue {
      background-color: #4d77cb;
 }
 
-body.trelloScrum-showCardNumbers .trelloScrum-seperator .card-short-id {
+body.trelloScrum-showCardNumbers .trelloScrum-separator .card-short-id {
     display: none;
 }
 body.trelloScrum-showCardNumbers span.card-short-id {
